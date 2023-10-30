@@ -45,7 +45,7 @@
     border-color: #4CAF50;
   }
   
-  input[type="submit"] {
+  button[type="submit"] {
     width: 100%;
     padding: 10px;
     background-color: #4CAF50;

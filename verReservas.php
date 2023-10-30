@@ -1,50 +1,45 @@
 <?php
-// Conectar a la base de datos (ajusta los valores según tu configuración)
-$host = 'localhost';
-$db = 'reservaciones';
-$user = 'root';
-$pass = '';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Obtener los datos del formulario
+    $nombre = $_POST["nombre"];
+    $email = $_POST["email"];
+    $contrasena = $_POST["contrasena"];
+    $fecha = $_POST["fecha"];
+    $hora = $_POST["hora"];
+    $servicio = $_POST["servicio"];
 
-try {
-  $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
-} catch (PDOException $e) {
-  die("Error de conexión a la base de datos: " . $e->getMessage());
+    // Verificar si las contraseñas coinciden
+    $confirmar_contrasena = $_POST["confirmar-contrasena"];
+    if ($contrasena !== $confirmar_contrasena) {
+        echo "Las contraseñas no coinciden.";
+        exit;
+    }
+
+    // Conectar a la base de datos (ajusta estos valores)
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "reservaciones";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Verificar la conexión
+    if ($conn->connect_error) {
+        die("Error de conexión: " . $conn->connect_error);
+    }
+
+    // Insertar los datos en la tabla "reservaciones"
+    $sql = "INSERT INTO reservaciones (nombre, email, contrasena, fecha, hora, servicio) VALUES ('$nombre', '$email', '$contrasena', '$fecha', '$hora', '$servicio')";
+
+    if ($conn->query($sql) === TRUE) {
+        // Registro y reserva exitosos
+    } else {
+        echo "Error al insertar el registro y la reserva: " . $conn->error;
+    }
+
+    $conn->close();
+} else {
+    // Manejo de solicitudes GET u otras situaciones
+    echo "Acceso no autorizado.";
 }
-
-// Recibir los datos del formulario
-$nombre = $_POST['nombre'];
-$email = $_POST['email'];
-$fecha = $_POST['fecha'];
-$hora = $_POST['hora'];
-$servicio = $_POST['servicio'];
-
-// Insertar los datos en la base de datos
-$stmt = $pdo->prepare("INSERT INTO reservaciones (nombre, email, fecha, hora, servicio) VALUES (?, ?, ?, ?, ?)");
-$stmt->execute([$nombre, $email, $fecha, $hora, $servicio]);
-
-// Redireccionar a una página de confirmación o mostrar un mensaje
-header('Location: registro.html');
-
-$stmt = $pdo->query("SELECT * FROM reservaciones");
-$reservas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Nombre</th>
-    <th>Email</th>
-    <th>Fecha</th>
-    <th>Hora</th>
-    <th>Servicio</th>
-  </tr>
-  <?php foreach ($reservas as $reserva) : ?>
-    <tr>
-      <td><?php echo $reserva['id']; ?></td>
-      <td><?php echo $reserva['nombre']; ?></td>
-      <td><?php echo $reserva['email']; ?></td>
-      <td><?php echo $reserva['fecha']; ?></td>
-      <td><?php echo $reserva['hora']; ?></td>
-      <td><?php echo $reserva['servicio']; ?></td>
-    </tr>
-  <?php endforeach; ?>
-</table>

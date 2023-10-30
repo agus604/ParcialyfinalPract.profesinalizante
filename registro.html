@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" type="text/css" href="style1.css">
+    <link rel="stylesheet" type="text/css" href="style 1.css">
     <link rel="stylesheet" type="text/css" href="style3.css">
-    <script src="validacionFrom.js"></script>
-
     <title>Registro</title>
 </head>
 <body>
@@ -26,44 +24,44 @@
 			</ul>
 		</nav>
 	</header>
-    <div class="container">
-        <h1>Registro y Reserva en Sumaq Spa</h1>
-        <div class="registration-form">
-          <form onsubmit="return validarRegistroForm();" id="registro-form"
-          action="procesar_reservacion.php" method="post">
+  <div class="container">
+    <h1>Registro y Reserva en Sumaq Spa</h1>
+    <form method="post" action="conexion.php" id="registro-reserva-form">
+        <!-- Campos de registro -->
+        <div class="registro-form">
             <label for="nombre">Nombre y apellido:</label>
             <input type="text" id="nombre" name="nombre" required>
-    
+
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-    
+
             <label for="contrasena">Contraseña:</label>
             <input type="password" id="contrasena" name="contrasena" required>
-    
+
             <label for="confirmar-contrasena">Confirmar Contraseña:</label>
             <input type="password" id="confirmar-contrasena" name="confirmar-contrasena" required>
-          </form>
         </div>
-    
         <div class="spa-reservation">
-          <h2>Reserva en Sumaq Spa</h2>
-          <form>
+            <h2>Reserva en Sumaq Spa</h2>
             <label for="fecha">Fecha:</label>
             <input type="date" id="fecha" name="fecha">
-    
+
             <label for="hora">Hora:</label>
             <input type="time" id="hora" name="hora">
-    
+
             <label for="servicio">Servicio:</label>
             <select id="servicio" name="servicio">
-              <option value="masaje">Masaje</option>
-              <option value="facial">Facial</option>
-              <option value="tratamiento">Tratamiento Corporal</option>
+                <option value="masaje">Masaje</option>
+                <option value="facial">Facial</option>
+                <option value="tratamiento">Tratamiento Corporal</option>
             </select>
-          </form>
         </div>
-        
-        <input type="submit" value="Registrarse y Reservar" class="submit-button" onclick="enviarFormulario()">
+
+        <button type="submit" class="submit-button" onclick="enviarFormulario()">Registrarse y Reservar</button>
+
+    </form>
+</div>
+
 
 
       </div>
@@ -105,6 +103,15 @@
             </address>
         </div>
     </footer>
-    
+    <script src="validacionFrom.js"></script>
+    <script>
+      document.getElementById('registro-reserva-form').addEventListener('submit', function (e) {
+          e.preventDefault(); // Prevenir el envío automático del formulario
+      
+          if (validarFormulario()) {
+              enviarFormulario();
+          }
+      });
+      </script>
 </body>
 </html>

@@ -12,21 +12,27 @@
 <body>
     <header class="header">
         <div class="it"></div>
-        <img class="logo" src="imagenes/logo.png" alt="logo del spa">
+        <a href="index.html" aria-label="Ir a la página de inicio">
+          <img 
+            class="logo" 
+            src="imagenes/logo.png" 
+            alt="Sumaq SPA - Logo" 
+            id="logo" 
+            style="cursor: pointer;"
+          >
+        </a>
         <h1 class="titulo">SUMAQ SPA</h1>
-        </div>
         <input type="checkbox" id="side-menu" class="side-menu">
         <label for="side-menu" class="hamb"><span class="hamb-line"></span></label>
-        <nav class="nav">
-            <ul class="menu">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="registro.html">Reservas on line</a></li>
-                <li><a href="#info">Información</a></li>
-                <li><a href="#pie">Contacto</a></li>
-               
-            </ul>
+        <nav class="nav" aria-label="Menú principal">
+          <ul class="menu">
+            <li><a href="tratamiento.html">Tratamientos</a></li>
+            <li><a href="registro.html">Reservas en línea</a></li>
+            <li><a href="#info">Información</a></li>
+            <li><a href="#pie">Contacto</a></li>
+          </ul>
         </nav>
-    </header>
+      </header>
     <div class="subtra">
         <h1>Servicios del spa</h1>
     </div>
@@ -44,12 +50,17 @@
                     Acción analgésica, reduce edemas, aumenta elasticidad,
                     rendimiento y recuperación del musculo,
                     drenaje de líquido linfático
+                   
             </div>
             <div class="card-stats">
                 <div class="stat">
-                    <div class="type">Tiempo del tratamiento: 60 minutos</div>
+                    <div class="type"><b>tiempo del tratamiento: 60 minutos</b></div>
                 </div>
             </div>
+            <div class="card-bottom">
+                <div class="price">$3500</div>
+                <button class="btn">Añadir al carrito</button>
+              </div>
         </div>
         <div class="card">
             <div class="card-image"><img class=" img" src="imagenes/m_desc.png"></div>
@@ -63,12 +74,17 @@
                     Acción analgésica, reduce edemas, aumenta,
                     elasticidad, rendimiento y recuperación del musculo,
                     drenaje de líquido linfático</p>
+                   
             </div>
             <div class="card-stats">
                 <div class="stat">
-                    <div class="type">Tiempo del tratamiento: 60 minutos</div>
+                    <div class="type"><b>tiempo del tratamiento: 60 minutos</b></div>
                 </div>
             </div>
+            <div class="card-bottom">
+                <div class="price">$3500</div>
+                <button class="btn">Añadir al carrito</button>
+              </div>
         </div>
         <div class="card">
             <div class="card-image"><img class=" img" src="imagenes/imagen1.1.png"></div>
@@ -80,12 +96,17 @@
                     propicia relajación.
                     Relajante, aumenta inmunidad, mejora
                     flexibilidad, elimina toxinas.</p>
+                    
             </div>
             <div class="card-stats">
                 <div class="stat">
-                    <div class="type">Tiempo del tratamiento: 30 minutos</div>
+                    <div class="type"><b>tiempo del tratamiento: 30 minutos</b></div>
                 </div>           
             </div>
+            <div class="card-bottom">
+                <div class="price">$3500</div>
+                <button class="btn">Añadir al carrito</button>
+              </div>
         </div>
         <div class="card">
             <div class="card-image"><img class=" img" src="imagenes/m_ayu.png"></div>
@@ -98,12 +119,17 @@
                     energizantes, y relajante.
                     relajante, nutritivo, reafirmante, aumenta
                     inmunidad, mejora flexibilidad, elimina toxinas.</p>
+                   
             </div>
             <div class="card-stats">
                 <div class="stat">
-                    <div class="type">Tiempo del tratamiento: 90 minutos</div>
+                    <div class="type"><b>tiempo del tratamiento: 90 minutos</b></div>
                 </div>
             </div>
+            <div class="card-bottom">
+                <div class="price">$3500</div>
+                <button class="btn">Añadir al carrito</button>
+              </div>
         </div>
         <div class="card">
             <div class="card-image"><img class=" img" src="imagenes/vibroa.png"></div>
@@ -113,12 +139,17 @@
                     manuales, en el contacto consciente y en presencia de la
                     vibración sonora proyectada sobre el cuerpo, 
                     mediante el uso de un cuenco vibro acústico.</p>
+                    
             </div>
             <div class="card-stats">
                 <div class="stat">
-                    <div class="type">Tiempo del tratamiento: 80 minutos</div>
+                    <div class="type"><b>tiempo del tratamiento: 80 minutos</b></div>
                 </div>
             </div>
+            <div class="card-bottom">
+                <div class="price">$3500</div>
+                <button class="btn">Añadir al carrito</button>
+              </div>
         </div>
         <div class="card">
             <div class="card-image"><img class=" img" src="imagenes/exfoayu.png"></div>
@@ -130,12 +161,17 @@
                     sanguínea de la superficie.
                     Una exfoliación totalmente natural con productos ayurvédicos
                     y mezcla de plantas andinas y nativas de Mendoza.</p>
+                    
             </div>
             <div class="card-stats">
                 <div class="stat">
-                    <div class="type">Tiempo del tratamiento: 45 minutos</div>
+                    <div class="type"><b>tiempo del tratamiento: 45 minutos</b> </div>
                 </div>
             </div>
+            <div class="card-bottom">
+                <div class="price">$3500</div>
+                <button class="btn">Añadir al carrito</button>
+              </div>
         </div>
         <div class="card">
             <div class="card-image"><img class=" img" src="imagenes/macacorp.png"></div>
@@ -144,12 +180,17 @@
                 <h2>Mascarilla corporal<br></h2>
                 <p>Mascarilla a base de cremas naturales, arcillas locales, extractos botánicos y aceites de
                     prensado en frio, preparada para nutrir en profundidad la piel.</p>
+                    
             </div>
             <div class="card-stats">
                 <div class="stat">
-                    <div class="type">Tiempo del tratamiento: 45 minutos</div>
+                    <div class="type"><b>tiempo del tratamiento: 45 minutos</b></div>
                 </div>
             </div>
+            <div class="card-bottom">
+                <div class="price">$3500</div>
+                <button class="btn">Añadir al carrito</button>
+              </div>
         </div>
     </div>
     <section class="info" id="info">
